@@ -86,6 +86,39 @@ input {
     background-color: var(--light-grey);
 }
 
+.icon {
+    border-radius: 1000px;
+    aspect-ratio : 1 / 1;
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+}
+
+.icon-green {
+    background-color: rgba(0,100,0,0.25);
+    color: mediumseagreen;
+}
+
+.icon-red {
+    background-color: rgba(100,0,0,0.25);
+    color: indianred;
+}
+
+.icon-blue {
+    background-color: rgba(0,111,255,0.25);
+    color: rgb(0,149,255);
+}
+
+.icon-yellow {
+    background-color: rgba(255,213,0,0.25);
+    color: rgb(255,166,0);
+}
+
 .dashboard-group {
     background-color: var(--light-grey);
     padding: var(--small-padding);
@@ -114,6 +147,11 @@ input {
 
 .p-lg {
     padding: var(--large-padding);
+}
+
+.px-lg {
+    padding-left: var(--large-padding);
+    padding-right: var(--large-padding)
 }
 
 .w-30 {

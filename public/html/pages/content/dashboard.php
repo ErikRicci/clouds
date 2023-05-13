@@ -20,137 +20,37 @@
 </style>
 <body>
 <?php require __DIR__."/../../components/header.php" ?>
-<div class="flex gap-large" style="padding-left: var(--large-padding); padding-right: var(--large-padding)">
-    <!-- FOLLOWERS TOTAL-->
-    <div class="dashboard-group flex-column gap-medium w-100 p-lg" style="justify-content: space-between">
-        <div style="display: flex; width: 100%; justify-content: space-between">
-            <div style="
-                        background-color: rgba(0,111,255,0.25);
-                        border-radius: 1000px;
-                        aspect-ratio : 1 / 1;
-                        width: 24px;
-                        height: 24px;
-                        padding: 16px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: default;
-                        user-select: none;
-                    ">
-                <span style="color: rgb(0,149,255);" class="material-symbols-rounded">groups</span>
-            </div>
-<!--            <span style="color: var(--lighter-grey); user-select: none; align-self: start; cursor: pointer" class="material-symbols-outlined">more_horiz</span>-->
-        </div>
-        <div class="flex-column gap-small">
-            <div style="font-size: var(--big-font)"><b><?php echo $followers_count; ?></b></div>
-            <div class="flex" style="justify-content: space-between; align-items: center">
-                <span style="color: var(--lighter-grey); font-weight: bold">Total followers</span>
-            </div>
-        </div>
-    </div>
-    <!-- NEW FOLLOWERS -->
-    <div class="dashboard-group flex-column gap-medium w-100 p-lg" style="justify-content: space-between">
-        <div style="display: flex; width: 100%; justify-content: space-between">
-            <div style="
-                        background-color: rgba(0,100,0,0.25);
-                        border-radius: 1000px;
-                        aspect-ratio : 1 / 1;
-                        width: 24px;
-                        height: 24px;
-                        padding: 16px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: default;
-                        user-select: none;
-                    ">
-                <span style="color: mediumseagreen;" class="material-symbols-rounded">emoji_people</span>
-            </div>
-<!--            <span style="color: var(--lighter-grey); user-select: none; align-self: start; cursor: pointer" class="material-symbols-outlined">more_horiz</span>-->
-        </div>
-        <div class="flex-column gap-small">
-            <div style="font-size: var(--big-font)">
-                <b><?php echo $new_followers; ?></b><span style="font-size: var(--small-font); color: mediumseagreen"> (<?php echo $yesterday_new_followers;?>)</span>
-            </div>
-            <div class="flex" style="justify-content: space-between; align-items: center">
-                <span style="color: var(--lighter-grey); font-weight: bold">Today's new followers</span>
-                <?php if ($new_followers_percentage_change_since_yesterday >= 0) { ?>
-                    <div class="p-xs br-sm" style="background-color: rgba(0,100,0,0.25)">
-                        <span style="font-weight: bold; color: mediumseagreen">+ <?php echo $new_followers_percentage_change_since_yesterday ?>%</span>
-                    </div>
-                <?php } else { ?>
-                    <div class="p-xs br-sm" style="background-color: rgba(100,0,0,0.25)">
-                        <span style="font-weight: bold; color: indianred">- <?php echo $new_followers_percentage_change_since_yesterday ?>%</span>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-    <!-- LEAVING FOLLOWERS-->
-    <div class="dashboard-group flex-column gap-medium w-100 p-lg" style="justify-content: space-between">
-        <div style="display: flex; width: 100%; justify-content: space-between">
-            <div style="
-                        background-color: rgba(100,0,0,0.25);
-                        border-radius: 1000px;
-                        aspect-ratio : 1 / 1;
-                        width: 24px;
-                        height: 24px;
-                        padding: 16px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: default;
-                        user-select: none;
-                    ">
-                <span style="color: indianred;" class="material-symbols-rounded">directions_run</span>
-            </div>
-<!--            <span style="color: var(--lighter-grey); user-select: none; align-self: start; cursor: pointer" class="material-symbols-outlined">more_horiz</span>-->
-        </div>
-        <div class="flex-column gap-small">
-            <div style="font-size: var(--big-font)">
-                <b><?php echo $leaving_followers; ?></b><span style="font-size: var(--small-font); color: indianred"> (<?php echo $yesterday_leaving_followers;?>)</span>
-            </div>
-            <div class="flex" style="justify-content: space-between; align-items: center">
-                <span style="color: var(--lighter-grey); font-weight: bold">Today's leaving followers</span>
-                <?php if ($new_followers_percentage_change_since_yesterday <= 0) { ?>
-                    <div class="p-xs br-sm" style="background-color: rgba(0,100,0,0.25)">
-                        <span style="font-weight: bold; color: mediumseagreen">- <?php echo $leaving_followers_percentage_change_since_yesterday ?>%</span>
-                    </div>
-                <?php } else { ?>
-                    <div class="p-xs br-sm" style="background-color: rgba(100,0,0,0.25)">
-                        <span style="font-weight: bold; color: indianred">+ <?php echo $leaving_followers_percentage_change_since_yesterday ?>%</span>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-    <!-- GODS TOTAL-->
-    <div class="dashboard-group flex-column gap-medium w-100 p-lg" style="justify-content: space-between">
-        <div style="display: flex; width: 100%; justify-content: space-between">
-            <div style="
-                        background-color: rgba(255,213,0,0.25);
-                        border-radius: 1000px;
-                        aspect-ratio : 1 / 1;
-                        width: 24px;
-                        height: 24px;
-                        padding: 16px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: default;
-                        user-select: none;
-                    ">
-                <span style="color: rgb(255,166,0);" class="material-symbols-rounded">person_4</span>
-            </div>
-<!--            <span style="color: var(--lighter-grey); user-select: none; align-self: start; cursor: pointer" class="material-symbols-outlined">more_horiz</span>-->
-        </div>
-        <div class="flex-column gap-small">
-            <div style="font-size: var(--big-font)"><b><?php echo $gods_count; ?></b></div>
-            <div class="flex" style="justify-content: space-between; align-items: center">
-                <span style="color: var(--lighter-grey); font-weight: bold">Total Gods</span>
-            </div>
-        </div>
-    </div>
+<div class="flex gap-large px-lg">
+    <?php
+        echo \Clouds\HTML\Components\Card\Card::render(
+            "Novos seguidores",
+            $followers_count,
+            color: 'blue',
+            icon: 'groups',
+        );
+        echo \Clouds\HTML\Components\Card\PercentageRateCard::render(
+            "Novos seguidores",
+            $new_followers_percentage_change_since_yesterday,
+            $new_followers,
+            $yesterday_new_followers,
+            icon: 'emoji_people'
+        );
+        echo \Clouds\HTML\Components\Card\PercentageRateCard::render(
+            "Seguidores perdidos",
+            $leaving_followers_percentage_change_since_yesterday,
+            $leaving_followers,
+            $yesterday_leaving_followers,
+            inverse: true,
+            color: 'red',
+            icon: 'directions_run'
+        );
+        echo \Clouds\HTML\Components\Card\Card::render(
+            "Deuses",
+            $gods_count,
+            color: 'yellow',
+            icon: 'person_4',
+        );
+    ?>
 </div>
 </body>
 </html>
