@@ -29,5 +29,6 @@ set_exception_handler('exception_handler');
 );
 
 new RouteManager([
+    new Route("/dashboard", RouteMethod::GET, [\Clouds\Controllers\DashboardController::class, "index"]),
     new Route("/create-mythology", RouteMethod::POST, [\Clouds\Controllers\MythologyController::class, "store"]),
 ]);
