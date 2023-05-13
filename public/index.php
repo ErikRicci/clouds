@@ -1,6 +1,8 @@
 <?php
 
+use R2SSimpleRouter\Enums\RouteMethod;
 use R2SSimpleRouter\Managers\RouteManager;
+use R2SSimpleRouter\Route;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -27,5 +29,5 @@ set_exception_handler('exception_handler');
 );
 
 new RouteManager([
-    // Define routes
+    new Route("/create-mythology", RouteMethod::POST, [\Clouds\Controllers\MythologyController::class, "store"]),
 ]);
