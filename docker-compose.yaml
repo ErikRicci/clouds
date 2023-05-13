@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  base:
+    container_name: clouds_base
+    build: .
+    working_dir: /src
+    ports:
+      - "${DOCKER_HOST_GATEWAY_HTTP_PORT:-8000}:80"
+    volumes:
+      - ./:/src
+    networks:
+      - clouds-network
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    container_name: clouds_redis
+    image: redis
+    ports:
+      - "${DOCKER_HOST_REDIS_PORT:-6379}:6379"
+    volumes:
+      - ./docker/redis/data:/data
+    networks:
+      - clouds-network
+
+  db:
+    container_name: clouds_db
+    image: mariadb
+    user: ${DOCKER_USER_UID:-root}:${DOCKER_USER_GID:-root}
+    ports:
+      - "${DOCKER_HOST_DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASES_TO_CREATE: "clouds"
+    volumes:
+      - ./docker/mariadb/data:/var/lib/mysql
+    networks:
+      - clouds-network
+
+networks:
+  clouds-network:
+    driver: bridge
