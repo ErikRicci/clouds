@@ -149,9 +149,13 @@ input {
     padding: var(--large-padding);
 }
 
+.pt-lg {
+    padding-top: var(--large-padding);
+}
+
 .px-lg {
     padding-left: var(--large-padding);
-    padding-right: var(--large-padding)
+    padding-right: var(--large-padding);
 }
 
 .w-30 {

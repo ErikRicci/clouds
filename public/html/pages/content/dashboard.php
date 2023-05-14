@@ -20,8 +20,9 @@
 </style>
 <body>
 <?php require __DIR__."/../../components/header.php" ?>
-<div class="flex gap-large px-lg">
-    <?php
+<div class="flex-column gap-large px-lg pt-lg">
+    <div class="flex gap-large">
+        <?php
         echo \Clouds\HTML\Components\Card\Card::render(
             "Novos seguidores",
             $followers_count,
@@ -50,7 +51,18 @@
             color: 'yellow',
             icon: 'person_4',
         );
-    ?>
+        ?>
+    </div>
+    <div class="flex gap-large">
+        <?php
+        echo \Clouds\HTML\Components\Card\Card::render(
+            "Deuses",
+            $gods_count,
+            color: 'yellow',
+            icon: 'person_4',
+        );
+        ?>
+    </div>
 </div>
 </body>
 </html>

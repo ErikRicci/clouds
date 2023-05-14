@@ -1,4 +1,1 @@
-<div class="header">
-    <div class="active">HOME</div>
-    <div>MANAGE</div>
-</div>
+<?php echo \Clouds\HTML\Components\Header\Header::render(); ?>
