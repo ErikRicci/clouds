@@ -27,6 +27,15 @@ class DashboardController
         $new_followers_percentage_change_since_yesterday = FollowersMetricService::calculatePercentageChange($yesterday_new_followers, $new_followers);
         $leaving_followers_percentage_change_since_yesterday = FollowersMetricService::calculatePercentageChange($yesterday_leaving_followers, $leaving_followers);
 
-        return require __DIR__."/../../public/html/pages/content/dashboard.php";
+        Response::success([
+            'gods_count' => $gods_count,
+            'followers_count' => $followers_count,
+            'new_followers' => $new_followers,
+            'yesterday_new_followers' => $yesterday_new_followers,
+            'new_followers_percentage_change_since_yesterday' => $new_followers_percentage_change_since_yesterday,
+            'leaving_followers' => $leaving_followers,
+            'yesterday_leaving_followers' => $yesterday_leaving_followers,
+            'leaving_followers_percentage_change_since_yesterday' => $leaving_followers_percentage_change_since_yesterday
+        ]);
     }
 }
