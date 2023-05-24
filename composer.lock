@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69fe7ef0e4ef36dd8b18280f8cc92930",
+    "content-hash": "0e1378b034b4ac31a9b6d5c15396ead5",
     "packages": [
         {
             "name": "erik.riccioppo/the-oracle",
@@ -43,6 +43,46 @@
                 "source": "https://github.com/ErikRicci/the-oracle/tree/v0.0.1"
             },
             "time": "2023-05-06T03:49:49+00:00"
+        },
+        {
+            "name": "r2soffner/r2s-array-helper",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/R2Soffner/r2s-array-helper.git",
+                "reference": "e36b0874dbf1973ec9d50d837fa9b95be4d03344"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/R2Soffner/r2s-array-helper/zipball/e36b0874dbf1973ec9d50d837fa9b95be4d03344",
+                "reference": "e36b0874dbf1973ec9d50d837fa9b95be4d03344",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "R2SArrayHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Erik",
+                    "email": "erikdavinci@gmail.com"
+                }
+            ],
+            "description": "Helps you with PHP arrays",
+            "support": {
+                "issues": "https://github.com/R2Soffner/r2s-array-helper/issues",
+                "source": "https://github.com/R2Soffner/r2s-array-helper/tree/v0.0.3"
+            },
+            "time": "2023-02-06T00:50:40+00:00"
         },
         {
             "name": "r2soffner/r2s-simple-router",
@@ -1742,7 +1782,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-redis": "*",
+        "ext-curl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

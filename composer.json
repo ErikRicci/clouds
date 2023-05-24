@@ -24,6 +24,8 @@
         "ext-pdo": "*",
         "erik.riccioppo/the-oracle": "^0.0.1",
         "ext-redis": "*",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "r2soffner/r2s-array-helper": "^0.0.3",
+        "ext-openssl": "*"
     }
 }
