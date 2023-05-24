@@ -2,7 +2,6 @@
 
 namespace Clouds\Commons;
 
-use Clouds\Utils\Math\Pythagoras;
 use PHPUnit\Framework\TestCase;
 
 class StreamTest extends TestCase

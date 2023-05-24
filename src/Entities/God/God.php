@@ -3,13 +3,14 @@
 namespace Clouds\Entities\God;
 
 use Clouds\Entities\Entity;
-use Clouds\Entities\Mythology\Mythology;
+use Clouds\Entities\God\Enums\Alignment;
 
 class God extends Entity
 {
-    private int $id;
+    private ?int $id;
     private string $name;
-    private ?Mythology $mythology = null;
+    private int $realm_id;
+    private Alignment $alignment;
     private \DateTime $created_at;
 
     public function getId(): int
@@ -17,7 +18,7 @@ class God extends Entity
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
@@ -32,16 +33,6 @@ class God extends Entity
         $this->name = $name;
     }
 
-    public function getMythology(): Mythology
-    {
-        return $this->mythology;
-    }
-
-    public function setMythology(?Mythology $mythology): void
-    {
-        $this->mythology = $mythology;
-    }
-
     public function getCreatedAt(): \DateTime
     {
         return $this->created_at;
@@ -52,5 +43,27 @@ class God extends Entity
         $this->created_at = is_string($created_at)
             ? new \DateTime($created_at)
             : $created_at;
+    }
+
+    public function getRealmId(): int
+    {
+        return $this->realm_id;
+    }
+
+    public function setRealmId(int $realm_id): void
+    {
+        $this->realm_id = $realm_id;
+    }
+
+    public function getAlignment(): Alignment
+    {
+        return $this->alignment;
+    }
+
+    public function setAlignment(Alignment|string $alignment): void
+    {
+        $this->alignment = is_string($alignment)
+            ? Alignment::from($alignment)
+            : $alignment;
     }
 }

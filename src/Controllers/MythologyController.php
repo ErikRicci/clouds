@@ -5,6 +5,7 @@ namespace Clouds\Controllers;
 use Clouds\Entities\Mythology\MythologyService;
 use Oracle\Oracle;
 use R2SSimpleRouter\Request;
+use R2SSimpleRouter\Response;
 
 class MythologyController
 {
@@ -43,5 +44,15 @@ class MythologyController
             ]);
         header("Location: /");
         exit();
+    }
+
+    public function getTopMythologies()
+    {
+        $quantity_to_fetch = Request::get("quantity_to_fetch", 3);
+        $top_mythologies = MythologyService::getTopMythologiesByFollowers($quantity_to_fetch);
+
+        Response::success([
+            'top_mythologies' => $top_mythologies
+        ]);
     }
 }

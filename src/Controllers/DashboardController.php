@@ -38,4 +38,13 @@ class DashboardController
             'leaving_followers_percentage_change_since_yesterday' => $leaving_followers_percentage_change_since_yesterday
         ]);
     }
+
+    public function getGodsWithAbilities()
+    {
+        $gods = GodService::getGodsWithAbilities();
+
+        Response::success([
+            'gods' => $gods
+        ]);
+    }
 }

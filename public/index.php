@@ -31,8 +31,18 @@ set_exception_handler('exception_handler');
 );
 
 new RouteManager([
+    new Route("/authenticate", RouteMethod::POST, [\Clouds\Controllers\AuthenticationController::class, "login"]),
     new Route("/dashboard", RouteMethod::GET, [\Clouds\Controllers\DashboardController::class, "index"]),
+    new Route("/dashboard-2", RouteMethod::GET, [\Clouds\Controllers\DashboardController::class, "getGodsWithAbilities"]),
     new Route("/create-mythology", RouteMethod::POST, [\Clouds\Controllers\MythologyController::class, "store"]),
+    new Route("/top-mythologies", RouteMethod::GET, [\Clouds\Controllers\MythologyController::class, "getTopMythologies"]),
+    new Route("/realms/:realm_id", RouteMethod::GET, [\Clouds\Controllers\RealmController::class, "show"]),
+    new Route("/create-god", RouteMethod::POST, [\Clouds\Controllers\GodController::class, "store"]),
+    new Route("/create-realm", RouteMethod::POST, [\Clouds\Controllers\RealmController::class, "store"]),
+
+    /** COMMANDS */
+    new Route("/command/generateGods", RouteMethod::GET, [\Clouds\Controllers\GodController::class, "generateGods"]),
+    new Route("/command/generateFollowers", RouteMethod::GET, [\Clouds\Controllers\FollowerController::class, "generateFollowers"]),
 ]);
 
 class CORS

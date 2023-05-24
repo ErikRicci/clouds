@@ -11,9 +11,8 @@ class GodBuilder
         $god = new God();
         $god->setId(gak($data, 'id'));
         $god->setName(gak($data, 'name'));
-        if (gak($data, 'mythology')) {
-            $god->setMythology((new MythologyBuilder())->fromArray(gak($data, 'mythology')));
-        }
+        $god->setRealmId(gak($data, 'realm_id'));
+        $god->setAlignment(gak($data, 'alignment'));
         $god->setCreatedAt(gak($data, 'created_at', now()));
 
         return $god;
