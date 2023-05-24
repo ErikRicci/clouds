@@ -2,6 +2,7 @@
 
 namespace Clouds\Commons;
 
+// TODO: Consider transforming this into an Interface
 class Stream
 {
     private array $content;
@@ -12,6 +13,11 @@ class Stream
     {
         $this->content = $content;
         $this->details = $details;
+    }
+
+    public static function with(array $content)
+    {
+        return new static($content);
     }
 
     public static function empty(): self
@@ -30,6 +36,8 @@ class Stream
         foreach ($this->getContent() as $item) {
             $callback($item);
         }
+
+        return $this;
     }
 
     public function where(callable $callback): self
@@ -47,6 +55,29 @@ class Stream
     public function get(): array
     {
         return $this->getContent();
+    }
+
+    public function getKeys(): ?array
+    {
+        $content = $this->getContent();
+        $first_item = reset($content);
+
+        if (! $first_item) {
+            return null;
+        }
+
+        if (is_array($first_item)) {
+            return array_keys($first_item);
+        } elseif ($first_item instanceof \stdClass) {
+            return get_object_vars($first_item);
+        } else {
+            $class = new \ReflectionClass($first_item);
+            $properties = [];
+            foreach ($class->getProperties() as $property) {
+                $properties[] = $property->getName();
+            }
+            return $properties;
+        }
     }
 
     public function count(): int
